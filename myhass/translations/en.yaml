@@ -1,0 +1,13 @@
+configuration:
+  nodeId:
+    name: Node ID (beta access)
+    description: Your unique node ID for MyHass.io, provided by MyHass.io after signing up for beta access.
+  secret:
+    name: Secret (beta access)
+    description: A secret key for authentication in MyHass.io, provided by MyHass.io after signing up for beta access.
+  # email:
+  #   name: Email
+  #   description: Your email address for authentication in MyHass.io.
+  # password:
+  #   name: Password
+  #   description: Your password for authentication in MyHass.io.

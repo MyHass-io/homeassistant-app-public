@@ -1,0 +1,88 @@
+#include <tunables/global>
+
+profile myhass flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  # Capabilities
+  file,
+  signal (send) set=(kill,term,int,hup,cont),
+
+  # S6-Overlay
+  /init ix,
+  /bin/** ix,
+  /usr/bin/** ix,
+  /run/{s6,s6-rc*,service}/** ix,
+  /package/** ix,
+  /command/** ix,
+  /etc/services.d/** rwix,
+  /etc/cont-init.d/** rwix,
+  /etc/cont-finish.d/** rwix,
+  /etc/resolv.conf rw,
+  /run/{,**} rwk,
+  /dev/tty rw,
+
+  # Bashio
+  /usr/lib/bashio/** ix,
+  /tmp/** rwk,
+
+  # Access to options.json and other files within your addon
+  /data/** rw,
+
+  # Start new profile for service
+  /usr/bin/myhass_client cx -> myhass_client,
+
+  profile myhass_client flags=(attach_disconnected,mediate_deleted) {
+    #include <abstractions/base>
+
+    # Receive signals from S6-Overlay
+    signal (receive) peer=*_myhass,
+
+    # Access to options.json and other files within your addon
+    /data/** rw,
+    /data/ rwk,
+    /data/.config/ rwk,
+    /data/.config/** rwk,
+    /data/.config/caddy/** rwk,
+    /data/.config/newt-client/** rwk,
+
+    # Access to mapped volumes specified in config.json
+    /share/** rw,
+
+    # Access required for service functionality
+    # Note: List was built by doing the following:
+    # 1. Add what is obviously needed based on what is in the script
+    # 2. Add `complain` as a flag to this profile temporarily and run the addon
+    # 3. Review the audit log with `journalctl _TRANSPORT="audit" -g 'apparmor="ALLOWED"'` and add other access as needed
+    # Remember to remove the `complain` flag when you are done
+    /usr/bin/myhass_client r,
+    /bin/bash rix,
+    /bin/sh rix,
+    /usr/bin/env ix,
+    /bin/echo ix,
+    /bin/busybox ix,
+    /usr/sbin/caddy ix,
+    /usr/bin/newt ix,
+    /usr/bin/tail ix,
+    /usr/local/bin/newt ix,
+    /etc/myhass/Caddyfile r,
+    /etc/resolv.conf rw,
+    /etc/hosts r,
+    /etc/nsswitch.conf r,
+    /etc/ssl/certs/ca-certificates.crt r,
+    /etc/ssl/certs/** r,
+    /etc/ssl/cert.pem r,
+    /etc/ca-certificates.conf r,
+    /etc/passwd r,
+    /proc/self/cgroup r,
+    /proc/[0-9]*/cgroup r,
+    /proc/self/mountinfo r,
+    /proc/[0-9]*/mountinfo r,
+    /sys/fs/cgroup/**/cpu.max r,
+    /sys/fs/cgroup/**/cpu.cfs_quota_us r,
+    /sys/fs/cgroup/**/cpu.cfs_period_us r,
+    /sys/fs/cgroup/cpu.max r,
+    /sys/fs/cgroup/cpu/cpu.cfs_quota_us r,
+    /sys/fs/cgroup/cpu/cpu.cfs_period_us r,
+    /dev/tty rw,
+  }
+}
