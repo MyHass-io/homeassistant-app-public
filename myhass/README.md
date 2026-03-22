@@ -36,8 +36,8 @@ and full control at your fingertips.
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
-[project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
-[release-shield]: https://img.shields.io/badge/version-v1.0.0-blue.svg
-[release]: https://github.com/MyHass-io/homeassistant-app-public/tree/v1.0.0
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-stable-green.svg
+[release-shield]: https://img.shields.io/badge/version-v1.0.2-blue.svg
+[release]: https://github.com/MyHass-io/homeassistant-app-public/tree/v1.0.2
 
 [myhass-io]: https://myhass.io
