@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-profile myhass flags=(attach_disconnected,mediate_deleted) {
+profile myhass_addon flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
 
   # Capabilities

@@ -82,10 +82,10 @@ For a general repository issue or app ideas [open an issue here][issue]
 [armv7-shield]: https://img.shields.io/badge/armv7-no-red.svg
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 
-[addon-myhassio]: https://github.com/MyHass-io/homeassistant-app-public/tree/v1.0.4
-[addon-doc-myhassio]: https://github.com/MyHass-io/homeassistant-app-public/blob/v1.0.4/README.md
+[addon-myhassio]: https://github.com/MyHass-io/homeassistant-app-public/tree/v1.0.5
+[addon-doc-myhassio]: https://github.com/MyHass-io/homeassistant-app-public/blob/v1.0.5/README.md
 [myhassio-issue]: https://github.com/MyHass-io/homeassistant-app-public/issues
-[myhassio-version-shield]: https://img.shields.io/badge/version-v1.0.4-blue.svg
+[myhassio-version-shield]: https://img.shields.io/badge/version-v1.0.5-blue.svg
 
 [issue]: https://github.com/MyHass-io/homeassistant-app-public/issues
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
