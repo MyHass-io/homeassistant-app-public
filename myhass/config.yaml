@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: MyHass.io
-version: "1.0.5"
+version: "1.0.6"
 slug: myhass
 description: Home Assistant secure remote access
 url: "https://github.com/MyHass-io/homeassistant-app-public"
@@ -20,6 +20,6 @@ schema:
   #email: "str?"
   #password: "str?"
 image: "ghcr.io/myhass-io/{arch}-addon-myhass"
-apparmor: "true"
+apparmor: true
 host_network: true
 
